@@ -3,7 +3,7 @@ FROM centos
 MAINTAINER Andreas Resch <andreas@resch.io>
 
 RUN dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-RUN dnf module enable -y php:remi-7.3
+RUN dnf module enable -y php:remi-7.2
 RUN dnf -y --enablerepo=PowerTools install libedit-devel
 RUN dnf install -y \
     https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \
