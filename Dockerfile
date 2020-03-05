@@ -14,6 +14,7 @@ RUN dnf install -y \
     php-pdo \
     php-oci8 \
     php-mysql \
+    php-opcache \
     systemtap-sdt-devel \
     openssl-devel \
     https://download.oracle.com/otn_software/linux/instantclient/195000/oracle-instantclient19.5-basic-19.5.0.0.0-1.x86_64.rpm \
@@ -33,6 +34,6 @@ ENV PATH=/usr/lib/oracle/19.5/client64/bin:$PATH
 ENV PHP_DTRACE=yes
 ENV ORACLE_HOME=/usr/lib/oracle/19.5/client64
 RUN echo -ne "\n" |C_INCLUDE_PATH=/usr/include/oracle/19.5/client64 pecl install oci8
-RUN dnf remove -y make
+RUN dnf remove -y make && dnf -y autoremove
 
 RUN echo "<?php echo phpinfo(); ?>" > /var/www/html/index.php
