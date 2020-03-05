@@ -29,10 +29,10 @@ RUN dnf install -y \
     && \
     dnf -y clean all
 RUN mkdir -p /run/php-fpm
-ENV LD_LIBRARY_PATH=/usr/lib/oracle/19.5/client64/lib/:$LD_LIBRARY_PATH
-ENV PATH=/usr/lib/oracle/19.5/client64/bin:$PATH
-ENV PHP_DTRACE=yes
-ENV ORACLE_HOME=/usr/lib/oracle/19.5/client64
+ENV LD_LIBRARY_PATH=/usr/lib/oracle/19.5/client64/lib/:$LD_LIBRARY_PATH \
+    PATH=/usr/lib/oracle/19.5/client64/bin:$PATH \
+    PHP_DTRACE=yes \
+    ORACLE_HOME=/usr/lib/oracle/19.5/client64
 RUN echo -ne "\n" |C_INCLUDE_PATH=/usr/include/oracle/19.5/client64 pecl install oci8
 RUN dnf remove -y make && dnf -y autoremove
 
