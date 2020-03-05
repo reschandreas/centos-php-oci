@@ -15,6 +15,7 @@ RUN dnf install -y \
     php-oci8 \
     php-mysql \
     php-opcache \
+    php-gd \
     systemtap-sdt-devel \
     openssl-devel \
     https://download.oracle.com/otn_software/linux/instantclient/195000/oracle-instantclient19.5-basic-19.5.0.0.0-1.x86_64.rpm \
